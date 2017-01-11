@@ -20,8 +20,8 @@ sudo docker run -it --rm -v $PWD:/src jgsqware/svn-client co http://svn.php.net/
 ## Building the source
 ```
 cd /workspace/phpdoc/doc-fr
-sudo docker run -it --rm -v $PWD:/app jeanseb/phd-1.1.10 php doc-base/configure.php
-sudo docker run -it --rm -v $PWD:/app jeanseb/phd-1.1.10 phd -d /app/doc-base/.manual.xml
+sudo docker run -it --rm -v $PWD:/app jeanseb/php-manual-tools php doc-base/configure.php
+sudo docker run -it --rm -v $PWD:/app jeanseb/php-manual-tools phd -d /app/doc-base/.manual.xml
 ```
 
 ## Browsing
