@@ -1,14 +1,13 @@
-== Building PHP manual with Docker container ==
+# Building PHP manual with Docker container ==
 
-It contains phd
-=== Preparation ===
+## Preparation
 
 
 ```
 sudo docker pull jgsqware/svn-client
 sudo docker build -t jeanseb/php-manual-tools
 ```
-=== Getting the source ===
+## Getting the source
 
 cf http://doc.php.net/tutorial/local-setup.php
 
@@ -18,14 +17,14 @@ cd ~/workspace/phpdoc
 sudo docker run -it --rm -v $PWD:/src jgsqware/svn-client co http://svn.php.net/repository/phpdoc/modules/doc-fr doc-fr
 ```
 
-=== Building the source ===
+## Building the source
 ```
 cd /workspace/phpdoc/doc-fr
 sudo docker run -it --rm -v $PWD:/app jeanseb/phd-1.1.10 php doc-base/configure.php
 sudo docker run -it --rm -v $PWD:/app jeanseb/phd-1.1.10 phd -d /app/doc-base/.manual.xml
 ```
 
-=== Browsing ===
+## Browsing
 
 ```
 docker run -v ~/workspace/phpdoc/doc-fr/output:/usr/share/nginx/html:ro -d -p 8080:80 nginx:latest
